@@ -1,0 +1,160 @@
+.linear-slider-section-row {
+  position: relative;
+  overflow: hidden;
+}
+
+.linear-slider-container {
+  position: relative;
+}
+
+.linear-slider {
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+
+  .slider-track {
+    display: flex;
+    backface-visibility: hidden;
+
+    &.transition {
+      transition: transform 500ms ease 0s;
+    }
+  }
+
+  .slide-item {
+    margin-right: 15px;
+
+    a {
+      transition: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .favorite-item {
+    position: relative;
+    width: 290px;
+    font-size: 14px;
+
+    .item-img {
+      margin-bottom: 15px;
+      width: 100%;
+      height: 270px;
+
+      img {
+        @include object-fit(cover);
+      }
+    }
+
+    .item-title {
+      margin-bottom: 25px;
+      font-weight: 300;
+      color: #7E7566;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    p {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+  }
+
+  @media(min-width: 350px) {
+    .favorite-item {
+      width: 324px;
+    }
+  }
+}
+
+.linear-slider-arrow {
+  position: absolute;
+  top: 30%;
+  z-index: 9;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border: 2px solid #7dad14;
+  background-color: #fff;
+  border-radius: 50%;
+
+  i {
+    font-size: 28px;
+    color: #161615;
+  }
+}
+
+.linear-slider-arrow-prev {
+  left: 5px;
+
+  @media(min-width: 576px) {
+    left: 15px;
+  }
+
+  @media(min-width: 1500px) {
+    left: -50px;
+  }
+}
+
+.linear-slider-arrow-next {
+  right: 5px;
+
+  @media(min-width: 576px) {
+    right: 15px;
+  }
+
+  @media(min-width: 1500px) {
+    right: -50px;
+  }
+}
+
+
+.linear-slider-slider {
+  position: relative;
+  display: table;
+  margin: auto;
+  border: 0;
+
+  input {
+    display: none;
+  }
+
+  .ui-slider-track {
+    position: relative;
+    margin: 0;
+    border: 0;
+  }
+
+  .ui-slider-handle {
+    z-index: 2;
+    transition: none;
+    backface-visibility: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    border: 3px solid #c7e091;
+  }
+
+  .slider-track-lines {
+    position: relative;
+    top: 14px;
+    left: 0;
+    right: 0;
+    display: flex;
+
+    .stl {
+      margin: 0 4px;
+      width: 5px;
+      height: 2px;
+      background-color: #707070;
+    }
+  }
+}
