@@ -1,3 +1,4 @@
+// custom linear slider
 (function ($) {
   $.fn.linearSlider = function () {
     return this.each(function () {
@@ -5,7 +6,7 @@
       $(this).wrap('<div class="linear-slider-container"></div>');
       $(this).parent().append('<button class="btn linear-slider-arrow linear-slider-arrow-prev"><i class="fal fa-angle-left"></i></button>' +
         '<button class="btn linear-slider-arrow linear-slider-arrow-next"><i class="fal fa-angle-right"></i></button>');
-      $(this).parent().append('<div class="linear-slider-slider"><input type="range" value="0" min="0" max="100"></div>');
+      $(this).parent().append('<div class="linear-slider-slider"><div class="slider-track-lines"></div><input type="range" value="0" min="0" max="100"></div>');
       $(this).find('.slide-item').wrapAll('<div class="slider-track transition"></div>')
 
       // cache elements
@@ -17,16 +18,14 @@
       var $prev = $sliderContainer.find('.linear-slider-arrow-prev');
       var $next = $sliderContainer.find('.linear-slider-arrow-next');
 
-
       var trackWidth = getTrackWidth();
       var translate = 0;
       var itemWidth = $slider.find('.slide-item').outerWidth(true);
 
-
       $prev.hide();
       $sliderTrack.width(trackWidth + 'px');
 
-      if(trackWidth < $sliderContainer.width()) {
+      if (trackWidth < $sliderContainer.width()) {
         $prev.hide();
         $next.hide();
         $sliderslider.hide();
@@ -59,9 +58,7 @@
         }
       });
 
-
       $sliderHandle = $sliderslider.find('.ui-slider-handle');
-
 
       $sliderslider.find('input').change(function () {
         // console.log($(this).val());
@@ -92,13 +89,13 @@
         }
       }
 
-
-
       function getTrackWidth() {
         var width = 0;
 
         $slider.find('.slide-item').each(function () {
           width += parseInt($(this).outerWidth(true));
+
+          $sliderContainer.find('.slider-track-lines').append('<div class="stl"></div>');
         })
         return width;
       }
